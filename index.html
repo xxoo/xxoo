@@ -29,20 +29,11 @@
 	<script type="text/javascript">
 		window.onload = function () {
 			window.chart = new Chart(document.body);
-			let t, w = 0;
-			chart.onpaitbegin = function () {
-				t = Date.now();
-			};
-			chart.onpaitcancel = function () {
-				w += Date.now() - t;
-				console.log('canceled');
-			};
-			chart.onpaitend = function () {
-				console.log(Date.now() - t + w);
-				w = 0;
-			};
 			chart.sorting = function (a, b) {
 				return a - b;
+			};
+			chart.xLableing = function (x) {
+				return this.indexOrder[x] - this.indexOrder[this.cursor];
 			};
 			let a = {},
 				total = 10000;
@@ -57,9 +48,6 @@
 					10000);
 				}
 			}
-			chart.xLableing = function (x) {
-				return this.indexOrder[x] - this.indexOrder[this.cursor];
-			};
 			chart.add(a);
 			chart.selected = 1;
 			chart.setRange(chart.index[0], chart.index[chart.index.length - 1]);
