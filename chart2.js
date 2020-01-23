@@ -602,7 +602,7 @@ const Chart = function () {
 				data[i++] = last;
 			}
 		}
-		this[gl].bufferData(this[gl].ARRAY_BUFFER, data, this[gl].STREAM_DRAW);
+		this[gl].bufferData(this[gl].ARRAY_BUFFER, data, this[gl].STATIC_DRAW);
 		calcLen.call(this);
 		let range = checkRange.call(this, this[begin], this[end]);
 		this[begin] = range[0];
