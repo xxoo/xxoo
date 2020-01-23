@@ -60,7 +60,8 @@ const Chart = function () {
 		this[rectColor] = [0, 0, 0];
 		this[textColor] = [0, 0, 0];
 		this[cursorTextColor] = [1, 0, 0];
-		this[cursor] = this[begin] = this[end] = this[oldbegin] = this[oldend] = NaN;
+		this[begin] = this[oldbegin] = Infinity
+		this[end] = this[oldend] = -Infinity;
 		this[queueActions] = [];
 		this[lines] = {};
 		this[mouseListener] = mousedown.bind(this);
@@ -615,14 +616,10 @@ const Chart = function () {
 
 	function checkRange(bg, ed) {
 		if (this.index.length > 1) {
-			if (Number.isNaN(bg) || Number.isNaN(ed)) {
-				return [this.index.length - this[minLen] - 1, this.index.length - 1];
-			} else {
-				ed = Math.max(Math.min(ed, this.index.length - 1), this[minLen]);
-				return [Math.max(Math.min(bg, ed - this[minLen]), 0), ed];
-			}
+			bg = Math.max(0, Math.min(bg, this.index.length - this[minLen]));
+			return [bg, Math.max(bg + this[minLen] - 1, Math.min(ed, this.index.length - 1))];
 		} else {
-			return [NaN, NaN];
+			return [Infinity, -Infinity];
 		}
 	}
 
@@ -648,8 +645,6 @@ const Chart = function () {
 			} else {
 				return Math.max(Math.min(cur, this.index.length - 1), 0);
 			}
-		} else {
-			return NaN;
 		}
 	}
 
@@ -790,7 +785,8 @@ const Chart = function () {
 						}
 					}
 				}
-				this[oldbegin] = this[oldend] = NaN;
+				this[oldbegin] = Infinity;
+				this[oldend] = -Infinity;
 				this[rangeChange] = false;
 			}
 			if (fireRangeChange || fireCursorChange) {
@@ -905,8 +901,6 @@ const Chart = function () {
 			}
 			let selPos,
 				pos = 4;
-			drawText.call(this, xtxts, h + this[fontSize]);
-			drawText.call(this, ytxts);
 			this[gl].vertexAttrib1f(this[WV], wv);
 			this[gl].vertexAttrib1f(this[HV], hv);
 			this[gl].vertexAttrib1f(this[MAX], this[max]);
@@ -952,6 +946,8 @@ const Chart = function () {
 					this[gl].drawArrays(this[gl].LINE_STRIP, selPos - line.first + sectionStarts[i], (i === sectionStarts.length - 1 ? Math.min(this[end], line.last) : sectionStarts[i + 1]) - sectionStarts[i] + 1);
 				}
 			}
+			drawText.call(this, xtxts, h + this[fontSize]);
+			drawText.call(this, ytxts);
 
 			function pushx(i) {
 				let x = i - this[begin];

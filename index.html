@@ -38,20 +38,20 @@
 			let a = {},
 				total = 10000;
 			for (let j = 0; j < 4000; j++) {
-				let len = Math.round(total * (Math.random() - Math.random() + 1) / 2),
-					start = Math.round((total - len) * (Math.random() - Math.random() + 1) / 2);
+				let len = (total * Math.random() + 1) | 0,
+					start = ((total - len) * Math.random()) | 0;
 				a[j] = {
 					[start]: 1000
 				};
 				for (let i = start + 1; i < len + start; i++) {
-					a[j][i] = Math.min(Math.max(Math.round(a[j][i - 1] * (1 + (Math.random() - Math.random()) / 10)), 100),
+					a[j][i] = Math.min(Math.max((a[j][i - 1] * (0.9 + Math.random() / 5) + 1) | 0, 100),
 					10000);
 				}
 			}
 			chart.add(a);
 			chart.selected = 1;
 			chart.setRange(chart.index[0], chart.index[chart.index.length - 1]);
-			chart.cursor = chart.index[Math.round((chart.index.length - 1) / 2)];
+			chart.cursor = chart.index[((chart.index.length - 1) / 2) | 0];
 			document.body.firstChild.addEventListener('click', function () {
 				this.href = chart.copy().toDataURL();
 			});
