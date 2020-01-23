@@ -16,13 +16,13 @@ const Chart = function () {
 		canvas3d = Symbol('canvas3d'),
 		gl = Symbol('gl'),
 		ground = Symbol('ground'),
+		HV = Symbol('HV'),
+		BASE = Symbol('BASE'),
+		MAX = Symbol('MAX'),
 		COLOR = Symbol('COLOR'),
 		POSITION = Symbol('POSITION'),
 		OFFSET = Symbol('OFFSET'),
 		WV = Symbol('WV'),
-		HV = Symbol('HV'),
-		BASE = Symbol('BASE'),
-		MAX = Symbol('MAX'),
 		paddingX = Symbol('paddingX'),
 		paddingY = Symbol('paddingY'),
 		paddingLeft = Symbol('paddingLeft'),
@@ -41,36 +41,33 @@ const Chart = function () {
 		lines = Symbol('lines'),
 		minLen = Symbol('minLen'),
 		mouseListener = Symbol('mouseListener'),
-		vs = `#version 300 es
-		in float position;
-		in float wv;
-		in float hv;
-		in float base;
-		in float max;
-		in float offset;
+		vs = `attribute vec2 POSITION;
+		attribute float WV;
+		attribute float HV;
+		attribute float MAX;
+		attribute float BASE;
+		attribute float OFFSET;
 		void main(void) {
-			if (wv != 0.0 && hv != 0.0) {
-				gl_Position = vec4((offset + float(gl_VertexID)) * 2.0 / wv - 1.0, ((position - base) / base - max) * 2.0 / hv + 1.0, 0.0, 1.0);
-			} else if (wv != 0.0) {
-				gl_Position = vec4(base * 2.0 / wv - 1.0, float(gl_VertexID) * 2.0 - 1.0, 0.0, 1.0);
-			} else if (hv != 0.0) {
-				gl_Position = vec4(float(gl_VertexID) * 2.0 - 1.0, hv * -2.0 + 1.0, 0.0, 1.0);
-			} else if (gl_VertexID == 1) {
+			if (POSITION.y != 0.0) {
+				gl_Position = vec4((POSITION.x - OFFSET) * 2.0 / WV - 1.0, ((POSITION.y - BASE) / BASE - MAX) * 2.0 / HV + 1.0, 0.0, 1.0);
+			} else if (WV != 0.0) {
+				gl_Position = vec4(OFFSET * 2.0 / WV - 1.0, POSITION.x, 0.0, 1.0);
+			} else if (OFFSET != 0.0) {
+				gl_Position = vec4(POSITION.x, OFFSET * -2.0 + 1.0, 0.0, 1.0);
+			} else if (POSITION.x == 1.0) {
 				gl_Position = vec4(1.0, -1.0, 0.0, 1.0);
-			} else if (gl_VertexID == 2) {
+			} else if (POSITION.x == 2.0) {
 				gl_Position = vec4(1.0, 1.0, 0.0, 1.0);
-			} else if (gl_VertexID == 3) {
+			} else if (POSITION.x == 3.0) {
 				gl_Position = vec4(-1.0, 1.0, 0.0, 1.0);
 			} else {
 				gl_Position = vec4(-1.0, -1.0, 0.0, 1.0);
 			}
 		}`,
-		fs = `#version 300 es
-		precision lowp float;
-		uniform vec4 color;
-		out vec4 outColor;
+		fs = `precision lowp float;
+		uniform vec4 COLOR;
 		void main(void) {
-			outColor = color;
+			gl_FragColor = COLOR;
 		}`;
 
 	function Chart(ctn) {
@@ -113,7 +110,7 @@ const Chart = function () {
 		this[canvas3d].addEventListener('mousedown', this[mouseListener]);
 		this[canvas3d].addEventListener('wheel', wheel.bind(this));
 		this[ground] = this[canvas2d].getContext('2d');
-		this[gl] = this[canvas3d].getContext('webgl2', {
+		this[gl] = this[canvas3d].getContext('webgl', {
 			alpha: false,
 			premultipliedAlpha: false,
 			antialias: true,
@@ -121,26 +118,26 @@ const Chart = function () {
 			depth: false,
 			preserveDrawingBuffer: true
 		});
-		//this[gl].enable(this[gl].DEPTH_TEST);
 		let vertShader = this[gl].createShader(this[gl].VERTEX_SHADER),
 			fragShader = this[gl].createShader(this[gl].FRAGMENT_SHADER),
-			shaderProgram = this[gl].createProgram();
+			program = this[gl].createProgram();
 		this[gl].shaderSource(vertShader, vs);
 		this[gl].shaderSource(fragShader, fs);
-		this[gl].compileShader(vertShader);
 		this[gl].compileShader(fragShader);
-		this[gl].attachShader(shaderProgram, vertShader);
-		this[gl].attachShader(shaderProgram, fragShader);
-		this[gl].linkProgram(shaderProgram);
-		this[gl].useProgram(shaderProgram);
-		this[POSITION] = this[gl].getAttribLocation(shaderProgram, 'position');
-		this[WV] = this[gl].getAttribLocation(shaderProgram, 'wv');
-		this[HV] = this[gl].getAttribLocation(shaderProgram, 'hv');
-		this[BASE] = this[gl].getAttribLocation(shaderProgram, 'base');
-		this[MAX] = this[gl].getAttribLocation(shaderProgram, 'max');
-		this[OFFSET] = this[gl].getAttribLocation(shaderProgram, 'offset');
-		this[COLOR] = this[gl].getUniformLocation(shaderProgram, 'color');
+		this[gl].compileShader(vertShader);
+		this[gl].attachShader(program, vertShader);
+		this[gl].attachShader(program, fragShader);
+		this[gl].linkProgram(program);
+		this[gl].useProgram(program);
+		this[POSITION] = this[gl].getAttribLocation(program, 'POSITION');
+		this[WV] = this[gl].getAttribLocation(program, 'WV');
+		this[OFFSET] = this[gl].getAttribLocation(program, 'OFFSET');
+		this[HV] = this[gl].getAttribLocation(program, 'HV');
+		this[BASE] = this[gl].getAttribLocation(program, 'BASE');
+		this[MAX] = this[gl].getAttribLocation(program, 'MAX');
+		this[COLOR] = this[gl].getUniformLocation(program, 'COLOR');
 		this[gl].bindBuffer(this[gl].ARRAY_BUFFER, this[gl].createBuffer());
+		this[gl].vertexAttribPointer(this[POSITION], 2, this[gl].FLOAT, false, 0, 0);
 		this[gl].enableVertexAttribArray(this[POSITION]);
 		if (self.ResizeObserver) {
 			new ResizeObserver(syncSize.bind(this)).observe(this[stage]);
@@ -162,11 +159,11 @@ const Chart = function () {
 			if (!this[lines][c]) {
 				this[lines][c] = {};
 			}
-			if (!this[lines][c].source) {
-				this[lines][c].source = data[c];
+			if (!this[lines][c].data) {
+				this[lines][c].data = data[c];
 			} else {
 				for (let n in data[c]) {
-					this[lines][c].source[n] = data[c][n];
+					this[lines][c].data[n] = data[c][n];
 				}
 			}
 		}
@@ -174,13 +171,20 @@ const Chart = function () {
 	};
 
 	Chart.prototype.remove = function (names) {
-		if (this[paiting]) {
-			this[paiting] = 2;
-			this[queueActions].push(names);
-		} else if (removeLines.call(this, names)) {
-			buildIndex.call(this);
-			return true;
+		let removed;
+		for (let i = 0; i < names.length; i++) {
+			if (this[lines].hasOwnProperty(names[i])) {
+				removed = true;
+				delete this[lines][names[i]];
+			}
 		}
+		if (removed) {
+			if (this[selected] && !this[lines].hasOwnProperty(this[selected])) {
+				this[selected] = undefined;
+			}
+			buildIndex.call(this);
+		}
+		return removed;
 	};
 
 	Chart.prototype.setSections = function (sections) {
@@ -191,7 +195,7 @@ const Chart = function () {
 				this[lines][c].sectionStarts = [];
 				this[lines][c].colors = [];
 				for (let i = 0; i < idx.length; i++) {
-					if (this[lines][c].source[idx[i]] > 0) {
+					if (this[lines][c].data[idx[i]] > 0) {
 						this[lines][c].sectionStarts.push(this.indexOrder[idx[i]]);
 						this[lines][c].colors.push(sections[c][idx[i]]);
 					}
@@ -214,9 +218,12 @@ const Chart = function () {
 		if (!pos) {
 			pos = this.cursor;
 		}
-		if (this.indexOrder.hasOwnProperty(pos) && this[lines].hasOwnProperty(c)) {
-			pos = this.indexOrder[pos] - this[lines][c].first;
-			return relative ? (this[lines][c].data[pos] - this[lines][c].base) / this[lines][c].base : this[lines][c].data[pos];
+		pos = this.indexOrder[pos];
+		if (this.lines.hasOwnProperty(c) && pos >= this[lines][c].first && pos <= this[lines][c].last) {
+			while(this[lines][c].data[this.index[pos]] === undefined) {
+				pos--;
+			}
+			return relative ? (this[lines][c].data[this.index[pos]] - this[lines][c].base) / this[lines][c].base : this[lines][c].data[this.index[pos]];
 		}
 	};
 
@@ -224,15 +231,18 @@ const Chart = function () {
 		if (!pos) {
 			pos = this.cursor;
 		}
-		if (this.indexOrder.hasOwnProperty(pos)) {
-			let r = {};
-			pos = this.indexOrder[pos];
-			for (let c in this[lines]) {
-				let p = pos - this[lines][c].first;
-				r[c] = relative ? (this[lines][c].data[p] - this[lines][c].base) / this[lines][c].base : this[lines][c].data[p];
+		pos = this.indexOrder[pos];
+		let r = {};
+		for (let c in this[lines]) {
+			if (pos >= this[lines][c].first && pos <= this[lines][c].last) {
+				let p = pos;
+				while(this[lines][c].data[this.index[p]] === undefined) {
+					p--;
+				}
+				r[c] = relative ? (this[lines][c].data[this.index[p]] - this[lines][c].base) / this[lines][c].base : this[lines][c].data[this.index[p]];
 			}
-			return r;
 		}
+		return r;
 	}
 
 	Chart.prototype.center = function () {
@@ -539,8 +549,8 @@ const Chart = function () {
 	function buildIndex() {
 		this.indexOrder = {};
 		for (let c in this[lines]) {
-			for (let n in this[lines][c].source) {
-				if (this[lines][c].source[n] > 0) {
+			for (let n in this[lines][c].data) {
+				if (this[lines][c].data[n] > 0) {
 					this.indexOrder[n] = 0;
 				} else {
 					delete this.indexOrder[n];
@@ -551,35 +561,46 @@ const Chart = function () {
 		for (let i = 0; i < this.index.length; i++) {
 			this.indexOrder[this.index[i]] = i;
 		}
+		let i = 0;
 		for (let c in this[lines]) {
-			this[lines][c].first = this[lines][c].tmin = Infinity;
-			this[lines][c].tmax = -Infinity;
-			let last = -1;
-			for (let n in this[lines][c].source) {
-				if (last < this.indexOrder[n]) {
-					last = this.indexOrder[n];
+			let line = this[lines][c];
+			line.first = line.tmin = Infinity;
+			line.last = line.tmax = -Infinity;
+			for (let n in line.data) {
+				if (line.last < this.indexOrder[n]) {
+					line.last = this.indexOrder[n];
 				}
-				if (this[lines][c].first > this.indexOrder[n]) {
-					this[lines][c].first = this.indexOrder[n];
+				if (line.first > this.indexOrder[n]) {
+					line.first = this.indexOrder[n];
 				}
-				if (this[lines][c].tmax < this[lines][c].source[n]) {
-					this[lines][c].tmax = this[lines][c].source[n];
-					this[lines][c].tmaxi = this.indexOrder[n];
+				if (line.tmax < line.data[n]) {
+					line.tmax = line.data[n];
+					line.tmaxi = this.indexOrder[n];
 				}
-				if (this[lines][c].tmin > this[lines][c].source[n]) {
-					this[lines][c].tmin = this[lines][c].source[n];
-					this[lines][c].tmini = this.indexOrder[n];
+				if (line.tmin > line.data[n]) {
+					line.tmin = line.data[n];
+					line.tmini = this.indexOrder[n];
 				}
 			}
-			this[lines][c].data = new Float32Array(last - this[lines][c].first + 1);
-			for (let i = 0; i < this[lines][c].data.length; i++) {
-				let v = this[lines][c].source[this.index[this[lines][c].first + i]];
+			i += line.last - line.first + 1;
+		}
+		//first 8 numbers are for other use
+		let data = new Float32Array(i * 2 + 8);
+		data.set([-1, 0, 1, 0, 2, 0, 3, 0]);
+		i = 8;
+		for (let c in this[lines]) {
+			let last,
+				line = this[lines][c];
+			for (let j = line.first; j <= line.last; j++) {
+				let v = line.data[this.index[j]];
 				if (v > 0) {
 					last = v;
 				}
-				this[lines][c].data[i] = last;
+				data[i++] = j;
+				data[i++] = last;
 			}
 		}
+		this[gl].bufferData(this[gl].ARRAY_BUFFER, data, this[gl].DYNAMIC_DRAW);
 		calcLen.call(this);
 		let range = checkRange.call(this, this[begin], this[end]);
 		this[begin] = range[0];
@@ -662,13 +683,22 @@ const Chart = function () {
 			if (fireRangeChange) {
 				for (let c in this[lines]) {
 					let line = this[lines][c],
-						last = line.first + line.data.length - 1,
 						bg = Math.max(this[begin], line.first),
-						ed = Math.min(this[end], last),
+						ed = Math.min(this[end], line.last),
 						obg = Math.max(this[oldbegin], line.first),
-						oed = Math.min(this[oldend], last);
+						oed = Math.min(this[oldend], line.last);
+					if (bg > line.first && bg < line.last) {
+						while (line.data[this.index[bg]] === undefined) {
+							bg--;
+						}
+					}
+					if (obg > line.first && obg < line.last) {
+						while (line.data[this.index[obg]] === undefined) {
+							obg--;
+						}
+					}
 					if (bg !== obg || ed !== oed) {
-						if (line.first < ed && last > bg) {
+						if (line.first < ed && line.last > bg) {
 							let findmax, findmin;
 							if (line.tmaxi >= bg && line.tmaxi <= ed) {
 								line.max = line.tmax;
@@ -729,7 +759,7 @@ const Chart = function () {
 					function findMaxMin(bg, ed, findmax, findmin) {
 						if (findmax && findmin) {
 							for (let i = bg; i <= ed; i++) {
-								let v = line.data[i - line.first];
+								let v = line.data[this.index[i]];
 								if (line.max < v) {
 									line.max = v;
 									line.maxi = i;
@@ -741,7 +771,7 @@ const Chart = function () {
 							}
 						} else if (findmax) {
 							for (let i = bg; i <= ed; i++) {
-								let v = line.data[i - line.first];
+								let v = line.data[this.index[i]];
 								if (line.max < v) {
 									line.max = v;
 									line.maxi = i;
@@ -749,7 +779,7 @@ const Chart = function () {
 							}
 						} else if (findmin) {
 							for (let i = bg; i <= ed; i++) {
-								let v = line.data[i - line.first];
+								let v = line.data[this.index[i]];
 								if (line.min > v) {
 									line.min = v;
 									line.mini = i;
@@ -765,15 +795,18 @@ const Chart = function () {
 				this[max] = -Infinity;
 				this[min] = Infinity;
 				for (let c in this[lines]) {
-					let line = this[lines][c],
-						last = line.first + line.data.length - 1;
-					if (line.first < this[end] && last > this[begin]) {
+					let line = this[lines][c];
+					if (line.first < this[end] && line.last > this[begin]) {
 						if (this[cursor] < line.first) {
-							line.base = line.data[0];
-						} else if (this[cursor] > last) {
-							line.base = line.data[line.data.length - 1];
+							line.base = line.data[this.index[line.first]];
+						} else if (this[cursor] > line.last) {
+							line.base = line.data[this.index[line.last]];
 						} else {
-							line.base = line.data[this[cursor] - line.first];
+							let i = this[cursor];
+							while (line.data[this.index[i]] === undefined) {
+								i--;
+							}
+							line.base = line.data[this.index[i]];
 						}
 						let maxv = (line.max - line.base) / line.base,
 							minv = (line.min - line.base) / line.base;
@@ -868,26 +901,28 @@ const Chart = function () {
 					pushy.call(this, 1 - i / m, this[max] * i / m);
 				}
 			}
+			let selPos,
+				pos = 4;
 			drawText.call(this, xtxts, h + this[fontSize]);
 			drawText.call(this, ytxts);
-			this[gl].uniform4f(this[COLOR], this[lineColor][0], this[lineColor][1], this[lineColor][2], 1);
 			this[gl].vertexAttrib1f(this[WV], wv);
 			this[gl].vertexAttrib1f(this[HV], hv);
 			this[gl].vertexAttrib1f(this[MAX], this[max]);
+			this[gl].uniform4f(this[COLOR], this[lineColor][0], this[lineColor][1], this[lineColor][2], 1);
 			for (let c in this[lines]) {
-				let line = this[lines][c],
-					last = line.first + line.data.length - 1;
-				if (c !== this[selected] && line.first < this[end] && last > this[begin]) {
-					drawPolyline.call(this, line, Math.max(this[begin], line.first), Math.min(this[end], last));
+				let line = this[lines][c];
+				if (c === this[selected]) {
+					selPos = pos;
+				} else if (line.first < this[end] && line.last > this[begin]) {
+					drawPolyline.call(this, line, pos - line.first + Math.max(this[begin], line.first), pos - line.first + Math.min(this[end], line.last));
 				}
+				pos += line.last - line.first + 1;
 			}
-			this[gl].bufferData(this[gl].ARRAY_BUFFER, new Float32Array(2), this[gl].STREAM_DRAW);
-			this[gl].vertexAttribPointer(this[POSITION], 1, this[gl].FLOAT, false, 0, 0);
 			this[gl].uniform4f(this[COLOR], this[gridColor][0], this[gridColor][1], this[gridColor][2], 1);
 			drawxy.call(this, xys);
 			this[gl].uniform4f(this[COLOR], this[cursorColor][0], this[cursorColor][1], this[cursorColor][2], 1);
 			drawxy.call(this, curs);
-			if (this[selected] && this[lines][this[selected]].first < this[end] && this[lines][this[selected]].first + this[lines][this[selected]].data.length - 1 > this[begin]) {
+			if (this[selected] && this[lines][this[selected]].first < this[end] && this[lines][this[selected]].first + this[lines][this[selected]].last > this[begin]) {
 				let line = this[lines][this[selected]],
 					bg = Math.max(this[begin], line.first),
 					colors = [],
@@ -911,17 +946,14 @@ const Chart = function () {
 				this[gl].vertexAttrib1f(this[MAX], this[max]);
 				for (let i = 0; i < sectionStarts.length; i++) {
 					this[gl].uniform4f(this[COLOR], colors[i][0], colors[i][1], colors[i][2], 1);
-					drawPolyline.call(this, line, sectionStarts[i], i === sectionStarts.length - 1 ? Math.min(this[end], line.first + line.data.length - 1) : sectionStarts[i + 1]);
+					drawPolyline.call(this, line, selPos - line.first + sectionStarts[i], selPos - line.first + (i === sectionStarts.length - 1 ? Math.min(this[end], line.last) : sectionStarts[i + 1]));
 				}
 			}
 
 			function drawPolyline(line, bg, ed) {
-				let len = ed - bg + 1;
-				this[gl].vertexAttrib1f(this[OFFSET], bg - this[begin]);
+				this[gl].vertexAttrib1f(this[OFFSET], this[begin]);
 				this[gl].vertexAttrib1f(this[BASE], line.base);
-				this[gl].bufferData(this[gl].ARRAY_BUFFER, line.data, this[gl].STREAM_DRAW, bg - line.first, len);
-				this[gl].vertexAttribPointer(this[POSITION], 1, this[gl].FLOAT, false, 0, 0);
-				this[gl].drawArrays(this[gl].LINE_STRIP, 0, len);
+				this[gl].drawArrays(this[gl].LINE_STRIP, bg, ed - bg + 1);
 			}
 
 			function pushx(i) {
@@ -949,11 +981,10 @@ const Chart = function () {
 				for (let i = 0; i < pos.length; i++) {
 					if (pos[i].hasOwnProperty('x')) {
 						this[gl].vertexAttrib1f(this[WV], wv);
-						this[gl].vertexAttrib1f(this[HV], 0);
-						this[gl].vertexAttrib1f(this[BASE], pos[i].x);
+						this[gl].vertexAttrib1f(this[OFFSET], pos[i].x);
 					} else {
 						this[gl].vertexAttrib1f(this[WV], 0);
-						this[gl].vertexAttrib1f(this[HV], pos[i].y);
+						this[gl].vertexAttrib1f(this[OFFSET], pos[i].y);
 					}
 					this[gl].drawArrays(this[gl].LINE_STRIP, 0, 2);
 				}
@@ -984,11 +1015,9 @@ const Chart = function () {
 				}
 			}
 		}
-		this[gl].uniform4f(this[COLOR], this[rectColor][0], this[rectColor][1], this[rectColor][2], 1);
 		this[gl].vertexAttrib1f(this[WV], 0);
-		this[gl].vertexAttrib1f(this[HV], 0);
-		this[gl].bufferData(this[gl].ARRAY_BUFFER, new Float32Array(4), this[gl].STREAM_DRAW);
-		this[gl].vertexAttribPointer(this[POSITION], 1, this[gl].FLOAT, false, 0, 0);
+		this[gl].vertexAttrib1f(this[OFFSET], 0);
+		this[gl].uniform4f(this[COLOR], this[rectColor][0], this[rectColor][1], this[rectColor][2], 1);
 		this[gl].drawArrays(this[gl].LINE_LOOP, 0, 4);
 		this[paiting] = 0;
 		if (this.onpaitend) {
@@ -1010,31 +1039,6 @@ const Chart = function () {
 
 	function translateColor(c) {
 		return 'rgb(' + Math.round(c[0] * 255) + ',' + Math.round(c[1] * 255) + ',' + Math.round(c[2] * 255) + ')';
-	}
-
-	function addLines(data) {
-		for (let c in data) {
-			if (!this[lines][c]) {
-				this[lines][c] = {};
-			}
-			this[lines][c].source = data[c];
-		}
-	}
-
-	function removeLines(names) {
-		let removed;
-		for (let i = 0; i < names.length; i++) {
-			if (this[lines].hasOwnProperty(names[i])) {
-				removed = true;
-				delete this[lines][names[i]];
-			}
-		}
-		if (removed) {
-			if (this[selected] && !this[lines].hasOwnProperty(this[selected])) {
-				this[selected] = undefined;
-			}
-		}
-		return removed;
 	}
 
 	function mousedown(evt) {
@@ -1084,7 +1088,7 @@ const Chart = function () {
 				this.moveCoordBy(Math.round(evt.deltaX));
 			}
 		} else if (absy > absx) {
-			this.zoomCoordBy(evt.deltaY, evt.altKey);
+			this.zoomCoordBy(evt.deltaY, !evt.altKey);
 		}
 	}
 
