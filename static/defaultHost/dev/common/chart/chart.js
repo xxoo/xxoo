@@ -137,7 +137,7 @@ define(function () {
 		this[gl].vertexAttribPointer(this[POSITION], 2, this[gl].FLOAT, false, 0, 0);
 		this[gl].enableVertexAttribArray(this[POSITION]);
 		if (self.ResizeObserver) {
-			new ResizeObserver(syncSize.bind(this)).observe(this[stage]);
+			new ResizeObserver(sizeChange.bind(this)).observe(this[stage]);
 		} else {
 			let frame = this[stage].insertBefore(document.createElement('iframe'), this[canvas2d]);
 			frame.style.border = 'none';
@@ -146,9 +146,10 @@ define(function () {
 			frame.style.top = frame.style.left = 0;
 			frame.style.width = frame.style.height = '100%';
 			frame.style.visibility = 'hidden';
-			frame.contentWindow.addEventListener('resize', syncSize.bind(this));
+			frame.contentWindow.addEventListener('resize', sizeChange.bind(this));
 		}
 		syncSize.call(this);
+		buildIndex.call(this);
 	}
 
 	Chart.prototype.add = function (data) {
@@ -391,7 +392,7 @@ define(function () {
 			},
 			set: function (x) {
 				this[paddingX] = x;
-				syncSize.call(this);
+				sizeChange.call(this);
 			}
 		},
 		paddingY: {
@@ -410,7 +411,7 @@ define(function () {
 			set: function (x) {
 				this[paddingLeft] = x;
 				this[canvas3d].style.left = x + 'px';
-				syncSize.call(this);
+				sizeChange.call(this);
 			}
 		},
 		fontSize: {
@@ -420,7 +421,7 @@ define(function () {
 			set: function (x) {
 				this[fontSize] = x;
 				this[canvas3d].style.top = x / 2 + 'px';
-				syncSize.call(this);
+				sizeChange.call(this);
 			}
 		},
 		selectedColor: {
@@ -500,6 +501,14 @@ define(function () {
 		return this[height] - this[fontSize] * 2;
 	}
 
+	function sizeChange() {
+		syncSize.call(this);
+		calcLen.call(this);
+		if (!this.setRange(this[begin], this[end])) {
+			draw.call(this);
+		}
+	}
+
 	function syncSize() {
 		this[width] = this[stage].clientWidth;
 		this[height] = this[stage].clientHeight;
@@ -513,10 +522,6 @@ define(function () {
 		this[canvas3d].style.height = hg + 'px';
 		this[ground].scale(devicePixelRatio, devicePixelRatio);
 		this[gl].viewport(0, 0, this[canvas3d].width, this[canvas3d].height);
-		calcLen.call(this);
-		if (!this.setRange(this[begin], this[end])) {
-			draw.call(this);
-		}
 	}
 
 	function calcLen() {
@@ -899,10 +904,6 @@ define(function () {
 					this[gl].drawArrays(this[gl].LINE_STRIP, selPos + starts[i], (i === starts.length - 1 ? Math.min(this[end] - line.offset + 1, line.data.length) : starts[i + 1] + 1) - starts[i]);
 				}
 			}
-			this[gl].vertexAttrib1f(this[X], 0);
-			this[gl].vertexAttrib1f(this[Y], 0);
-			this[gl].uniform4f(this[COLOR], this[rectColor][0], this[rectColor][1], this[rectColor][2], 1);
-			this[gl].drawArrays(this[gl].LINE_LOOP, 0, 4);
 			drawText.call(this, xtxts, h + this[fontSize]);
 			drawText.call(this, ytxts);
 
@@ -965,6 +966,10 @@ define(function () {
 				}
 			}
 		}
+		this[gl].vertexAttrib1f(this[X], 0);
+		this[gl].vertexAttrib1f(this[Y], 0);
+		this[gl].uniform4f(this[COLOR], this[rectColor][0], this[rectColor][1], this[rectColor][2], 1);
+		this[gl].drawArrays(this[gl].LINE_LOOP, 0, 4);
 		this[paiting] = 0;
 		this[oldbegin] = this[begin];
 		this[oldend] = this[end];

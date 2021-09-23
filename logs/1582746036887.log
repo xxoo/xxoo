@@ -1,0 +1,624 @@
+[2/27/2020, 3:40:37 AM] manager started.
+[2/27/2020, 3:40:37 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [web]   throw err;
+[2/27/2020, 3:40:37 AM] [web]   ^
+[2/27/2020, 3:40:37 AM] [web]
+[2/27/2020, 3:40:37 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:37 AM] [web] Require stack:
+[2/27/2020, 3:40:37 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:37 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:37 AM] [web] }
+[2/27/2020, 3:40:37 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [captcha]   throw err;
+[2/27/2020, 3:40:37 AM] [captcha]   ^
+[2/27/2020, 3:40:37 AM] [captcha]
+[2/27/2020, 3:40:37 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:37 AM] [captcha] Require stack:
+[2/27/2020, 3:40:37 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:37 AM] [captcha] }
+[2/27/2020, 3:40:37 AM] [http] will redirect http to https.
+[2/27/2020, 3:40:37 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [captcha]   throw err;
+[2/27/2020, 3:40:37 AM] [captcha]   ^
+[2/27/2020, 3:40:37 AM] [captcha]
+[2/27/2020, 3:40:37 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:37 AM] [captcha] Require stack:
+[2/27/2020, 3:40:37 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:37 AM] [captcha] }
+[2/27/2020, 3:40:37 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [web]   throw err;
+[2/27/2020, 3:40:37 AM] [web]   ^
+[2/27/2020, 3:40:37 AM] [web]
+[2/27/2020, 3:40:37 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:37 AM] [web] Require stack:
+[2/27/2020, 3:40:37 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:37 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:37 AM] [web] }
+[2/27/2020, 3:40:37 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [web]   throw err;
+[2/27/2020, 3:40:37 AM] [web]   ^
+[2/27/2020, 3:40:37 AM] [web]
+[2/27/2020, 3:40:37 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:37 AM] [web] Require stack:
+[2/27/2020, 3:40:37 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:37 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:37 AM] [web] }
+[2/27/2020, 3:40:37 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [captcha]   throw err;
+[2/27/2020, 3:40:37 AM] [captcha]   ^
+[2/27/2020, 3:40:37 AM] [captcha]
+[2/27/2020, 3:40:37 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:37 AM] [captcha] Require stack:
+[2/27/2020, 3:40:37 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:37 AM] [captcha] }
+[2/27/2020, 3:40:37 AM] [defaultHost] starting captcha client...
+[2/27/2020, 3:40:37 AM] [defaultHost] server is started
+[2/27/2020, 3:40:37 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [captcha]   throw err;
+[2/27/2020, 3:40:37 AM] [captcha]   ^
+[2/27/2020, 3:40:37 AM] [captcha]
+[2/27/2020, 3:40:37 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:37 AM] [captcha] Require stack:
+[2/27/2020, 3:40:37 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:37 AM] [captcha] }
+[2/27/2020, 3:40:37 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [web]   throw err;
+[2/27/2020, 3:40:37 AM] [web]   ^
+[2/27/2020, 3:40:37 AM] [web]
+[2/27/2020, 3:40:37 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:37 AM] [web] Require stack:
+[2/27/2020, 3:40:37 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:37 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:37 AM] [web] }
+[2/27/2020, 3:40:37 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [captcha]   throw err;
+[2/27/2020, 3:40:37 AM] [captcha]   ^
+[2/27/2020, 3:40:37 AM] [captcha]
+[2/27/2020, 3:40:37 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:37 AM] [captcha] Require stack:
+[2/27/2020, 3:40:37 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:37 AM] [captcha] }
+[2/27/2020, 3:40:37 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [captcha]   throw err;
+[2/27/2020, 3:40:37 AM] [captcha]   ^
+[2/27/2020, 3:40:37 AM] [captcha]
+[2/27/2020, 3:40:37 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:37 AM] [captcha] Require stack:
+[2/27/2020, 3:40:37 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:37 AM] [captcha] }
+[2/27/2020, 3:40:37 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:37 AM] [web]   throw err;
+[2/27/2020, 3:40:37 AM] [web]   ^
+[2/27/2020, 3:40:37 AM] [web]
+[2/27/2020, 3:40:37 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:37 AM] [web] Require stack:
+[2/27/2020, 3:40:37 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:37 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:37 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:37 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:37 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:37 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:37 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:37 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:37 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:37 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:37 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:37 AM] [web] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [web]   throw err;
+[2/27/2020, 3:40:38 AM] [web]   ^
+[2/27/2020, 3:40:38 AM] [web]
+[2/27/2020, 3:40:38 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:38 AM] [web] Require stack:
+[2/27/2020, 3:40:38 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:38 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:38 AM] [web] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [web]   throw err;
+[2/27/2020, 3:40:38 AM] [web]   ^
+[2/27/2020, 3:40:38 AM] [web]
+[2/27/2020, 3:40:38 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:38 AM] [web] Require stack:
+[2/27/2020, 3:40:38 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:38 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:38 AM] [web] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [web]   throw err;
+[2/27/2020, 3:40:38 AM] [web]   ^
+[2/27/2020, 3:40:38 AM] [web]
+[2/27/2020, 3:40:38 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:38 AM] [web] Require stack:
+[2/27/2020, 3:40:38 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:38 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:38 AM] [web] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [web]   throw err;
+[2/27/2020, 3:40:38 AM] [web]   ^
+[2/27/2020, 3:40:38 AM] [web]
+[2/27/2020, 3:40:38 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:38 AM] [web] Require stack:
+[2/27/2020, 3:40:38 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:38 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:38 AM] [web] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [web]   throw err;
+[2/27/2020, 3:40:38 AM] [web]   ^
+[2/27/2020, 3:40:38 AM] [web]
+[2/27/2020, 3:40:38 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:38 AM] [web] Require stack:
+[2/27/2020, 3:40:38 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:38 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:38 AM] [web] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [web]   throw err;
+[2/27/2020, 3:40:38 AM] [web]   ^
+[2/27/2020, 3:40:38 AM] [web]
+[2/27/2020, 3:40:38 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:38 AM] [web] Require stack:
+[2/27/2020, 3:40:38 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:38 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:38 AM] [web] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [web]   throw err;
+[2/27/2020, 3:40:38 AM] [web]   ^
+[2/27/2020, 3:40:38 AM] [web]
+[2/27/2020, 3:40:38 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:38 AM] [web] Require stack:
+[2/27/2020, 3:40:38 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:38 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:38 AM] [web] }
+[2/27/2020, 3:40:38 AM] [captcha] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [captcha]   throw err;
+[2/27/2020, 3:40:38 AM] [captcha]   ^
+[2/27/2020, 3:40:38 AM] [captcha]
+[2/27/2020, 3:40:38 AM] [captcha] Error: Cannot find module 'opentype.js'
+[2/27/2020, 3:40:38 AM] [captcha] Require stack:
+[2/27/2020, 3:40:38 AM] [captcha] - /Volumes/data/Projects/xxoo/bin/captchaServer.js
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [captcha]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/captchaServer.js:5:9)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [captcha]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [captcha]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [captcha]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [captcha]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [captcha]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/captchaServer.js' ]
+[2/27/2020, 3:40:38 AM] [captcha] }
+[2/27/2020, 3:40:38 AM] [web] internal/modules/cjs/loader.js:983
+[2/27/2020, 3:40:38 AM] [web]   throw err;
+[2/27/2020, 3:40:38 AM] [web]   ^
+[2/27/2020, 3:40:38 AM] [web]
+[2/27/2020, 3:40:38 AM] [web] Error: Cannot find module 'ws'
+[2/27/2020, 3:40:38 AM] [web] Require stack:
+[2/27/2020, 3:40:38 AM] [web] - /Volumes/data/Projects/xxoo/bin/webServer.js
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:980:15)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:862:27)
+[2/27/2020, 3:40:38 AM] [web]     at Module.require (internal/modules/cjs/loader.js:1040:19)
+[2/27/2020, 3:40:38 AM] [web]     at require (internal/modules/cjs/helpers.js:72:18)
+[2/27/2020, 3:40:38 AM] [web]     at Object.<anonymous> (/Volumes/data/Projects/xxoo/bin/webServer.js:12:7)
+[2/27/2020, 3:40:38 AM] [web]     at Module._compile (internal/modules/cjs/loader.js:1151:30)
+[2/27/2020, 3:40:38 AM] [web]     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1171:10)
+[2/27/2020, 3:40:38 AM] [web]     at Module.load (internal/modules/cjs/loader.js:1000:32)
+[2/27/2020, 3:40:38 AM] [web]     at Function.Module._load (internal/modules/cjs/loader.js:899:14)
+[2/27/2020, 3:40:38 AM] [web]     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:71:12) {
+[2/27/2020, 3:40:38 AM] [web]   code: 'MODULE_NOT_FOUND',
+[2/27/2020, 3:40:38 AM] [web]   requireStack: [ '/Volumes/data/Projects/xxoo/bin/webServer.js' ]
+[2/27/2020, 3:40:38 AM] [web] }

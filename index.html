@@ -10,18 +10,21 @@
 			height: 100%;
 			background-color: #e0e0e0;
 		}
+
 		body {
 			margin: 0;
 			height: 100%;
 		}
-		#chart{
+
+		#chart {
 			position: absolute;
 			left: 0;
 			right: 200px;
 			bottom: 0;
 			top: 0;
 		}
-		#list{
+
+		#list {
 			position: absolute;
 			right: 0;
 			bottom: 0;
@@ -29,6 +32,7 @@
 			width: 200px;
 			overflow: auto;
 		}
+
 		#list>a {
 			display: block;
 			font-size: 12px;
@@ -36,11 +40,17 @@
 			cursor: pointer;
 		}
 	</style>
+	<script type="text/javascript">
+		let Chart;
+		function define(func) {
+			Chart = func();
+		}
+	</script>
 	<script type="text/javascript" src="chart.js"></script>
 	<script type="text/javascript">
 		window.onload = function () {
 			window.chart = new Chart(document.getElementById('chart'));
-			document.getElementById('list').addEventListener('click', function(evt) {
+			document.getElementById('list').addEventListener('click', function (evt) {
 				if (evt.target.nodeName === 'A') {
 					if (chart.selected === evt.target.dataset.c) {
 						chart.selected = undefined;
@@ -61,18 +71,19 @@
 				let len = (total * Math.random() + 1) | 0;
 				a[j] = {
 					data: [1000],
-					cross: (len * Math.random()) | 0
+					//cross: (len * Math.random()) | 0
+					offset: (total - len) * Math.random() | 0
 				};
 				for (let i = 1; i < len; i++) {
 					a[j].data.push(Math.min(Math.max((a[j].data[i - 1] * (0.9 + Math.random() / 5) + 1) | 0, 100),
-					10000));
+						10000));
 				}
 			}
 			chart.add(a);
 			//chart.selected = 1;
 			let s = '';
 			for (let n in a) {
-				s += `<a data-c="${n}"${this.selected === n ? ' style="font-weight:bold;"': ''}>line${n}: ${a[n].data[a[n].cross]}</a>`;
+				s += `<a data-c="${n}"${this.selected === n ? ' style="font-weight:bold;"' : ''}>line${n}: ${a[n].data.length}</a>`;
 			}
 			document.getElementById('list').innerHTML = s;
 			/*document.body.firstChild.addEventListener('click', function () {
@@ -82,6 +93,9 @@
 	</script>
 </head>
 
-<body><div id="chart"></div><div id="list"></div></body>
+<body>
+	<div id="chart"></div>
+	<div id="list"></div>
+</body>
 
 </html>

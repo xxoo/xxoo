@@ -1,0 +1,8 @@
+[2/27/2020, 4:18:16 AM] manager started.
+[2/27/2020, 4:18:16 AM] [web] server is started
+[2/27/2020, 4:18:16 AM] [web] connected to api server for defaultHost.
+[2/27/2020, 4:18:16 AM] [captcha] server started.
+[2/27/2020, 4:18:16 AM] [http] will redirect http to https.
+[2/27/2020, 4:18:16 AM] [defaultHost] starting captcha client...
+[2/27/2020, 4:18:16 AM] [defaultHost] connected to captcha server.
+[2/27/2020, 4:18:16 AM] [defaultHost] server is started

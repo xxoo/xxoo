@@ -1,0 +1,95 @@
+@import '../../config.less';
+
+#page>.home {
+	background-color: #e0e0e0;
+	height: 100%;
+
+	>.chart {
+		position: absolute;
+		left: 200px;
+		right: 200px;
+		bottom: 200px;
+		top: 0;
+	}
+	>.subchart{
+		position: absolute;
+		height: 200px;
+		left: 200px;
+		right: 200px;
+		bottom: 0;
+	}
+	>.tree{
+		position: absolute;
+		left:0;
+		top: 0;
+		bottom: 0;
+		width: 200px;
+	}
+
+	>.list {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top: 0;
+		width: 200px;
+		overflow: auto;
+		outline: none;
+
+		>a {
+			display: block;
+			cursor: pointer;
+			height: 24px;
+			padding: 2px;
+
+			>span {
+				pointer-events: none;
+				display: inline-block;
+				vertical-align: top;
+
+				&.name {
+					width: 60px;
+					font-size: 12px;
+					line-height: 20px;
+				}
+
+				&.progress {
+					width: 100px;
+					border-width: 1px;
+					border-style: solid;
+					height: 12px;
+					background-color: silver;
+					margin: 4px 0;
+
+					>span {
+						display: block;
+						height: 100%;
+					}
+
+					&.c0 {
+						border-color: green;
+
+						>span {
+							background-color: green;
+						}
+					}
+
+					&.c1 {
+						border-color: gray;
+
+						>span {
+							background-color: gray;
+						}
+					}
+
+					&.c2 {
+						border-color: red;
+
+						>span {
+							background-color: red;
+						}
+					}
+				}
+			}
+		}
+	}
+}
