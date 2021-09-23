@@ -1,5 +1,5 @@
 'use strict';
-define(function () {
+const Chart = function () {
 	const labeling = Symbol('labeling'),
 		cursor = Symbol('cursor'),
 		width = Symbol('width'),
@@ -42,7 +42,7 @@ define(function () {
 		minLen = Symbol('minLen'),
 		mouseListener = Symbol('mouseListener');
 
-	function Chart(ctn, useCross) {
+	function Chart(ctn) {
 		this[paddingY] = 40;
 		this[paddingX] = 60;
 		this[paddingLeft] = 50;
@@ -54,9 +54,6 @@ define(function () {
 		this[gridColor] = [0.75, 0.75, 1];
 		this[rectColor] = [0, 0, 0];
 		this[textColor] = [0, 0, 0];
-		if (!useCross) {
-			this[cross] = NaN;
-		}
 		this[lines] = {};
 		this[mouseListener] = mousedown.bind(this);
 		this[stage] = ctn.appendChild(document.createElement('div'));
@@ -152,51 +149,31 @@ define(function () {
 	}
 
 	Chart.prototype.add = function (data) {
-		if (Number.isNaN(this[cross])) {
-			for (let c in data) {
-				if (data[c].data.length > 1) {
-					this[lines][c] = {
-						data: data[c].data,
-						offset: data[c].offset | 0,
-						tmax: -Infinity,
-						tmin: Infinity
-					};
-					for (let i = 0; i < data[c].data.length; i++) {
-						checkMaxMin.call(this, c, i);
+		for (let c in data) {
+			if (data[c].data.length > 1 && data[c].cross >= 0 && data[c].cross < data[c].data.length) {
+				this[lines][c] = {
+					data: [],
+					cross: data[c].cross,
+					tmax: -Infinity,
+					tmin: Infinity
+				};
+				for (let i = 0; i < data[c].data.length; i++) {
+					this[lines][c].data[i] = (data[c].data[i] - data[c].data[data[c].cross]) / (i < data[c].cross ? data[c].data[i] : data[c].data[data[c].cross]);
+					if (this[lines][c].data[i] > 1 || this[lines][c].data[i] < -1) {
+						this[lines][c].data[i] = Math.cbrt(this[lines][c].data[i]);
 					}
-				}
-			}
-		} else {
-			for (let c in data) {
-				if (data[c].data.length > 1 && data[c].cross >= 0 && data[c].cross < data[c].data.length) {
-					this[lines][c] = {
-						data: [],
-						cross: data[c].cross,
-						tmax: -Infinity,
-						tmin: Infinity
-					};
-					for (let i = 0; i < data[c].data.length; i++) {
-						this[lines][c].data[i] = (data[c].data[i] - data[c].data[data[c].cross]) / (i < data[c].cross ? data[c].data[i] : data[c].data[data[c].cross]);
-						if (this[lines][c].data[i] > 1 || this[lines][c].data[i] < -1) {
-							this[lines][c].data[i] = Math.cbrt(this[lines][c].data[i]);
-						}
-						checkMaxMin.call(this, c, i);
+					if (this[lines][c].tmax < this[lines][c].data[i]) {
+						this[lines][c].tmax = this[lines][c].data[i];
+						this[lines][c].tmaxi = i;
+					}
+					if (this[lines][c].tmin > this[lines][c].data[i]) {
+						this[lines][c].tmin = this[lines][c].data[i];
+						this[lines][c].tmini = i;
 					}
 				}
 			}
 		}
 		buildIndex.call(this);
-
-		function checkMaxMin(c, i) {
-			if (this[lines][c].tmax < this[lines][c].data[i]) {
-				this[lines][c].tmax = this[lines][c].data[i];
-				this[lines][c].tmaxi = i;
-			}
-			if (this[lines][c].tmin > this[lines][c].data[i]) {
-				this[lines][c].tmin = this[lines][c].data[i];
-				this[lines][c].tmini = i;
-			}
-		}
 	};
 
 	Chart.prototype.remove = function (names) {
@@ -234,19 +211,17 @@ define(function () {
 	};
 
 	Chart.prototype.center = function () {
-		if (!Number.isNaN(this[cursor])) {
-			let len = Math.ceil((this[end] - this[begin]) / 2),
-				bg = this[cursor] - len,
-				ed = this[cursor] + len;
-			if (bg < 0) {
-				bg = 0;
-				ed = this[cursor] * 2;
-			} else if (ed >= this[length]) {
-				ed = this[length] - 1;
-				bg = this[cursor] * 2 - ed;
-			}
-			return this.setRange(bg, ed);
+		let len = Math.ceil((this[end] - this[begin]) / 2),
+			bg = this[cross] - len,
+			ed = this[cross] + len;
+		if (bg < 0) {
+			bg = 0;
+			ed = this[cross] * 2;
+		} else if (ed >= this[length]) {
+			ed = this[length] - 1;
+			bg = this[cross] * 2 - ed;
 		}
+		return this.setRange(bg, ed);
 	};
 
 	Chart.prototype.setRange = function (bg, ed) {
@@ -286,14 +261,14 @@ define(function () {
 			newlen = this[length] - 1;
 		}
 		if (newlen !== len) {
-			if (this[cursor] >= this[begin] && this[cursor] <= this[end]) {
-				let l = newlen - len;
-				this[begin] += Math.round(l * (this[begin] - this[cursor]) / (this[end] - this[begin]));
-				this[end] += Math.round(l * (this[end] - this[cursor]) / (this[end] - this[begin]));
-			} else {
+			if (this[cursor] < this[begin] || this[cursor] > this[end]) {
 				let l = (newlen - len) / 2;
 				this[begin] -= Math.ceil(l);
 				this[end] += Math.floor(l);
+			} else {
+				let l = newlen - len;
+				this[begin] += Math.round(l * (this[begin] - this[cursor]) / (this[end] - this[begin]));
+				this[end] += Math.round(l * (this[end] - this[cursor]) / (this[end] - this[begin]));
 			}
 			if (this[begin] < 0) {
 				this[end] -= this[begin];
@@ -330,10 +305,10 @@ define(function () {
 			}
 		},
 		labeling: {
-			get: function() {
+			get: function () {
 				return this[labeling];
 			},
-			set: function(func) {
+			set: function (func) {
 				this[labeling] = func;
 				if (this[cursor] >= this[begin] && this[cursor] <= this[end]) {
 					draw.call(this);
@@ -341,10 +316,10 @@ define(function () {
 			}
 		},
 		cursor: {
-			get: function() {
+			get: function () {
 				return this[cursor];
 			},
-			set: function(cur) {
+			set: function (cur) {
 				cur = checkCursor.call(this, cur);
 				if (this[cursor] !== cur) {
 					this[cursor] = cur;
@@ -524,44 +499,26 @@ define(function () {
 	}
 
 	function buildIndex() {
-		let i = this[length] = 0;
-		if (Number.isNaN(this[cross])) {
-			let first = Infinity;
-			for (let c in this[lines]) {
-				if (first > this[lines][c].offset) {
-					first = this[lines][c].offset;
-				}
+		let i = this[length] = this[cross] = 0;
+		for (let c in this[lines]) {
+			if (this[cross] < this[lines][c].cross) {
+				this[cross] = this[lines][c].cross;
 			}
-			for (let c in this[lines]) {
-				this[lines][c].offset -= first;
-				let l = this[lines][c].offset + this[lines][c].data.length;
-				if (this[length] < l) {
-					this[length] = l;
-				}
-				i += this[lines][c].data.length;
-			}
-		} else {
-			this[cross] = 0;
-			for (let c in this[lines]) {
-				if (this[cross] < this[lines][c].cross) {
-					this[cross] = this[lines][c].cross;
-				}
-				i += this[lines][c].data.length;
-			}
-			for (let c in this[lines]) {
-				this[lines][c].offset = this[cross] - this[lines][c].cross;
-				let l = this[lines][c].offset + this[lines][c].data.length;
-				if (this[length] < l) {
-					this[length] = l;
-				}
+			i += this[lines][c].data.length;
+		}
+		for (let c in this[lines]) {
+			this[lines][c].offset = this[cross] - this[lines][c].cross;
+			let l = this[lines][c].offset + this[lines][c].data.length;
+			if (this[length] < l) {
+				this[length] = l;
 			}
 		}
 		calcLen.call(this);
-		this[cursor] = checkCursor.call(this, this[cursor]);
 		let range = checkRange.call(this, this[begin], this[end]);
 		this[begin] = range[0];
 		this[end] = range[1];
 		this[oldbegin] = this[oldend] = undefined;
+		this[cursor] = checkCursor.call(this, this[cursor]);
 		//first 8 numbers are for other use
 		let data = new Float32Array(i * 2 + 8);
 		data.set([-1, NaN, 1, NaN, 2, NaN, 3, NaN]);
@@ -741,17 +698,17 @@ define(function () {
 				curs = [],
 				xtxts = [{
 					v: this[paddingLeft],
-					text: Number.isNaN(this[cross]) ? this[labeling] ? this[labeling](this[begin]) : this[begin] : this[begin] - this[cross]
+					text: this[begin] - this[cross]
 				}, {
 					v: w + this[paddingLeft],
-					text: Number.isNaN(this[cross]) ? this[labeling] ? this[labeling](this[end]) : this[end] : this[end] - this[cross]
+					text: this[end] - this[cross]
 				}],
 				ytxts = [{
 					v: this[fontSize] / 2,
-					text: Number.isNaN(this[cross]) ? this[max] : Math.round((this[max] > 1 || this[max] < -1 ? this[max] ** 3 : this[max]) * 1000) / 10 + '%'
+					text: Math.round((this[max] > 1 || this[max] < -1 ? this[max] ** 3 : this[max]) * 1000) / 10 + '%'
 				}, {
 					v: h + this[fontSize] / 2,
-					text: Number.isNaN(this[cross]) ? this[min] : Math.round((this[min] > 1 || this[min] < -1 ? this[min] ** 3 : this[min]) * 1000) / 10 + '%'
+					text: Math.round((this[min] > 1 || this[min] < -1 ? this[min] ** 3 : this[min]) * 1000) / 10 + '%'
 				}];
 			if (this[cross] >= this[begin] && this[cross] <= this[end]) {
 				let n1 = Math.floor((this[end] - this[cross]) / n),
@@ -778,15 +735,10 @@ define(function () {
 				let n1 = Math.floor((this[end] - this[begin]) / n),
 					n2 = (this[end] - this[begin]) / n1;
 				for (let i = 1; i < n1; i++) {
-					pushx.call(this, this[begin] + Math.round(i * n2));
+					pushx.call(this, this[cross] < this[begin] ? this[begin] + Math.round(i * n2) : this[end] - Math.round(i * n2));
 				}
 			}
-			if (Number.isNaN(this[cross]) || this[max] < 0 || this[min] > 0) {
-				let m = Math.floor(h / this[paddingY]);
-				for (let i = 1; i < m; i++) {
-					pushy.call(this, 1 - i / m, this[min] + (this[max] - this[min]) * i / m);
-				}
-			} else {
+			if (this[max] >= 0 && this[min] <= 0) {
 				let m = Math.floor(hu * h / this[paddingY]);
 				for (let i = 1; i < m; i++) {
 					pushy.call(this, hu - hu * i / m, this[max] * i / m);
@@ -804,52 +756,55 @@ define(function () {
 						text: '0%'
 					});
 				}
+			} else {
+				let m = Math.floor(h / this[paddingY]);
+				for (let i = 1; i < m; i++) {
+					pushy.call(this, 1 - i / m, this[min] + (this[max] - this[min]) * i / m);
+				}
 			}
-			if (!Number.isNaN(this[cursor])) {
-				if (this[selected] === undefined) {
-					if (this[cursor] >= this[begin] && this[cursor] <= this[end]) {
-						let x = this[cursor] - this[begin];
-						curs.push({
-							x: x
-						});
-						xtxts.push({
-							v: x * wu + this[paddingLeft],
-							text: 0,
-							cur: true
-						});
-					}
+			if (this[selected] === undefined) {
+				if (this[cursor] >= this[begin] && this[cursor] <= this[end]) {
+					let x = this[cursor] - this[begin];
 					curs.push({
-						y: hu
+						x: x
 					});
-					ytxts.push({
-						v: hu * h + this[fontSize] / 2,
-						text: '0%',
+					xtxts.push({
+						v: x * wu + this[paddingLeft],
+						text: 0,
 						cur: true
 					});
-				} else {
-					let i = this[cursor] - this[lines][this[selected]].offset;
-					if (this[cursor] >= this[begin] && this[cursor] <= this[end]) {
-						let x = this[cursor] - this[begin];
-						curs.push({
-							x: x
-						});
-						xtxts.push({
-							v: x * wu + this[paddingLeft],
-							text: Number.isNaN(this[cross]) ? this[labeling] ? this[labeling](this[cursor]) : this[cursor] : this[labeling] ? this[labeling](i) : this[cursor] - this[cross],
-							cur: true
-						});
-					}
-					if (this[lines][this[selected]].data[i] >= this[min] && this[lines][this[selected]].data[i] <= this[max]) {
-						let y = (this[max] - this[lines][this[selected]].data[i]) / hv;
-						curs.push({
-							y: y
-						});
-						ytxts.push({
-							v: y * h + this[fontSize] / 2,
-							text: Number.isNaN(this[cross]) ? this[lines][this[selected]].data[i] : this[labeling] ? this[labeling](i, true) : Math.round((this[lines][this[selected]].data[i] > 1 || this[lines][this[selected]].data[i] < -1 ? this[lines][this[selected]].data[i] ** 3 : this[lines][this[selected]].data[i]) * 1000) / 10 + '%',
-							cur: true
-						});
-					}
+				}
+				curs.push({
+					y: hu
+				});
+				ytxts.push({
+					v: hu * h + this[fontSize] / 2,
+					text: '0%',
+					cur: true
+				});
+			} else {
+				let i = this[cursor] - this[lines][this[selected]].offset;
+				if (this[cursor] >= this[begin] && this[cursor] <= this[end]) {
+					let x = this[cursor] - this[begin];
+					curs.push({
+						x: x
+					});
+					xtxts.push({
+						v: x * wu + this[paddingLeft],
+						text: this[labeling] ? this[labeling](i) : this[cursor] - this[cross],
+						cur: true
+					});
+				}
+				if (this[lines][this[selected]].data[i] >= this[min] && this[lines][this[selected]].data[i] <= this[max]) {
+					let y = (this[max] - this[lines][this[selected]].data[i]) / hv;
+					curs.push({
+						y: y
+					});
+					ytxts.push({
+						v: y * h + this[fontSize] / 2,
+						text: this[labeling] ? this[labeling](i, true) : Math.round((this[lines][this[selected]].data[i] > 1 || this[lines][this[selected]].data[i] < -1 ? this[lines][this[selected]].data[i] ** 3 : this[lines][this[selected]].data[i]) * 1000) / 10 + '%',
+						cur: true
+					});
 				}
 			}
 			let selPos,
@@ -913,7 +868,7 @@ define(function () {
 				});
 				xtxts.push({
 					v: x * wu + this[paddingLeft],
-					text: Number.isNaN(this[cross]) ? this[labeling] ? this[labeling](i) : i : i - this[cross]
+					text: i - this[cross]
 				});
 			}
 
@@ -923,7 +878,7 @@ define(function () {
 				});
 				ytxts.push({
 					v: y * h + this[fontSize] / 2,
-					text: Number.isNaN(this[cross]) ? Math.round(v * 100) / 100 : Math.round((v > 1 || v < -1 ? v ** 3 : v) * 1000) / 10 + '%'
+					text: Math.round((v > 1 || v < -1 ? v ** 3 : v) * 1000) / 10 + '%'
 				});
 			}
 
@@ -1005,12 +960,12 @@ define(function () {
 					this[canvas3d].addEventListener('mousedown', this[mouseListener]);
 				}
 			}.bind(this),
-			start = function() {
+			start = function () {
 				this[canvas3d].removeEventListener('mousedown', this[mouseListener]);
 				this[canvas3d].addEventListener('mousemove', mousemove);
 				this[canvas3d].ownerDocument.addEventListener('mouseup', mouseup);
 			},
-			moveCursor = function(x) {
+			moveCursor = function (x) {
 				this.cursor = this[begin] + Math.round(x * (this[end] - this[begin]) / getWidth.call(this));
 			};
 		btn = evt.button;
@@ -1059,4 +1014,4 @@ define(function () {
 			evt.preventDefault();
 		}
 	}
-});
+}();
